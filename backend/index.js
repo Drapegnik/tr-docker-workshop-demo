@@ -18,6 +18,7 @@ const Task = sequelize.define('tasks', {
   },
 });
 
+const PORT = 4000;
 const app = express();
 
 app.use(cors());
@@ -77,7 +78,8 @@ sequelize
     throw error;
   })
   .then(() =>
-    app.listen(4000, () => {
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
       console.log('Ready to get todos!');
     })
   );
