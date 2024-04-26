@@ -4,4 +4,4 @@ build:
 	docker build -t ${IMAGE_NAME}:latest .
 
 run:
-	docker run --init --network host ${IMAGE_NAME}:latest
+	docker run --init -p 4000:4000 ${IMAGE_NAME}:latest

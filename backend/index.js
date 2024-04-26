@@ -2,9 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const DB_HOST = process.env.DB_HOST || 'localhost';
+const DB_PORT = process.env.DB_PORT || '5432';
+
 const {Sequelize, DataTypes} = require('sequelize');
 const sequelize = new Sequelize(
-  'postgres://postgres:rn6yBZ1QG7x1asvBRzaX@localhost:5432/demo'
+  `postgres://postgres:rn6yBZ1QG7x1asvBRzaX@${DB_HOST}:${DB_PORT}/demo`
 );
 
 const Task = sequelize.define('tasks', {
